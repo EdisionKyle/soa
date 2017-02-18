@@ -10,17 +10,20 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 /**
- *  说明：
+ *  说明：UserService
  *  创建时间：2017年2月17日 下午5:42:14
  *  Copyright (C) 2017, tianpc0318@163.com All Rights Reserved.
  *
  *  @version V1.0
  *  @author milesloner
  */
-@Path("userservice") // 服务路径
+@Path("/center") // 服务路径
 public class UserService {
+
 	/**
 	 * 初始化三个用户数据，存入map中，key为用户id，value为用户对象
 	 */
@@ -41,8 +44,10 @@ public class UserService {
 	 * @return
 	 */
 	@GET
-	@Path("user/{id}") // 具体服务的路径, id是入参
-	@Produces("application/json") // 返回的格式
+	@Path("user/{id}")
+	// 具体服务的路径, id是入参
+	@Produces(MediaType.APPLICATION_JSON)
+	// 返回的格式
 	public User getById(@PathParam("id") Integer id) {
 		return (User) userMap.get(id);
 	}
@@ -54,13 +59,21 @@ public class UserService {
 	 */
 	@GET
 	@Path("users")
-	@Produces("application/json")
+	@Produces(MediaType.APPLICATION_JSON)
 	public List<User> getUsers() {
 		List<User> userList = new ArrayList<User>();
 		for (Entry<Integer, User> user : userMap.entrySet()) {
 			userList.add(user.getValue());
 		}
 		return userList;
+	}
+
+	@GET
+	@Path("/msg/{param}")
+	public Response printMessage(@PathParam("param") String msg) {
+		String result = "Hello : " + msg;
+
+		return Response.status(200).entity(result).build();
 	}
 
 }

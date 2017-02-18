@@ -1,15 +1,18 @@
 package com.miles.resteasy;
 
+import java.io.Serializable;
+
 /**
- *  说明：
+ *  说明：用户实体
  *  创建时间：2017年2月17日 下午5:42:34
  *  Copyright (C) 2017, tianpc0318@163.com All Rights Reserved.
  *
  *  @version V1.0
  *  @author milesloner
  */
-public class User {
+public class User implements Serializable {
 
+	private static final long serialVersionUID = 1L;
 	private String name;
 	private int age;
 	private String tel;

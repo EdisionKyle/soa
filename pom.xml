@@ -20,5 +20,6 @@
   <modules>
     <module>cxf</module>
     <module>resteasy</module>
+    <module>cxf-restful</module>
   </modules>
 </project>

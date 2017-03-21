@@ -1,4 +1,4 @@
-package com.miles.resteasy;
+﻿package com.miles.resteasy;
 
 import java.io.Serializable;
 
@@ -8,7 +8,7 @@ import java.io.Serializable;
  *  Copyright (C) 2017, tianpc0318@163.com All Rights Reserved.
  *
  *  @version V1.0
- *  @author milesloner
+ *  @author milesloner 萬里獨行
  */
 public class Book implements Serializable {
 
